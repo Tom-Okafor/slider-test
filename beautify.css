@@ -21,9 +21,28 @@ body {
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: 3.3rem;
     padding: 1.5rem;
-    letter-spacing: 3px;
+    letter-spacing: 5px;
     font-family: "Righteous", Sans-Serif;
-    background: linear-gradient(60deg, var(--color2), var(--color5light));
+    background: linear-gradient(
+        55deg,
+        var(--color2) 55%,
+        var(--color5light) 56%
+    );
+    background-size: 56%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradient-slide 10s ease-in-out infinite alternate;
+}
+
+@keyframes gradient-slide {
+    40% {
+        background-size: 30%;
+    }
+
+    100% {
+        background-size: 80%;
+    }
 }

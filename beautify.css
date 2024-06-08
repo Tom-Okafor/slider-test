@@ -1,0 +1,29 @@
+:root {
+    --color1: #f0f4c3;
+    --color2: #9389ff;
+    --color2light: #c7c3f4;
+    --color3: #4e9aff;
+    --color4: #009dab;
+    --color4light: #c3f0f4;
+    --color5: #ff5df2;
+    --color5light: #f4c3f0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+}
+body {
+    font-family: "Josefin Sans", Sans-Serif;
+    background-color: var(--color1);
+}
+
+h1 {
+    font-size: 3rem;
+    padding: 1.5rem;
+    letter-spacing: 3px;
+    font-family: "Righteous", Sans-Serif;
+    background: linear-gradient(60deg, var(--color2), var(--color5light));
+}

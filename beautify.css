@@ -21,11 +21,12 @@ body {
 }
 
 h1 {
-    font-size: 3.3rem;
+    font-size: 3rem;
     padding: 1.5rem 0.5rem;
 
     letter-spacing: 5px;
-    font-family: "Courier New";
+    font-family: "Courier New", Monospace;
+    font-family: "Ultra", Monospace;
     background: linear-gradient(
         55deg,
         var(--color2) 55%,
@@ -44,7 +45,7 @@ h1 {
     }
 
     100% {
-        background-size: 110%;
+        background-size: 125%;
     }
 }
 

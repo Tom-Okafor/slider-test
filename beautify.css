@@ -32,7 +32,7 @@ h1 {
         var(--color2) 55%,
         var(--color5light) 56%
     );
-    background-size: 56%;
+    background-size: 60%;
     background-repeat: repeat;
     -webkit-background-clip: text;
     color: transparent;
@@ -40,12 +40,18 @@ h1 {
 }
 
 @keyframes gradient-slide {
-    40% {
+    30% {
         background-size: 30%;
     }
 
+    80% {
+        background-size: 220%;
+        background-position: right center;
+    }
+
     100% {
-        background-size: 125%;
+        background-size: 110%;
+        background-position: left center;
     }
 }
 

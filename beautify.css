@@ -22,9 +22,10 @@ body {
 
 h1 {
     font-size: 3.3rem;
-    padding: 1.5rem;
+    padding: 1.5rem 0.5rem;
+
     letter-spacing: 5px;
-    font-family: "Righteous", Sans-Serif;
+    font-family: "Courier New";
     background: linear-gradient(
         55deg,
         var(--color2) 55%,
@@ -34,7 +35,7 @@ h1 {
     background-repeat: repeat;
     -webkit-background-clip: text;
     color: transparent;
-    animation: gradient-slide 10s ease-in-out infinite alternate;
+    animation: gradient-slide 25s ease-in-out infinite alternate;
 }
 
 @keyframes gradient-slide {
@@ -43,6 +44,10 @@ h1 {
     }
 
     100% {
-        background-size: 80%;
+        background-size: 110%;
     }
+}
+
+.logo {
+    height: 30px;
 }

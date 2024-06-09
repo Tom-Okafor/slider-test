@@ -36,7 +36,7 @@ h1 {
     background-repeat: repeat;
     -webkit-background-clip: text;
     color: transparent;
-    animation: gradient-slide 25s ease-in-out infinite alternate;
+    animation: gradient-slide 50s ease-in-out infinite alternate;
 }
 
 @keyframes gradient-slide {
@@ -57,4 +57,41 @@ h1 {
 
 .logo {
     height: 30px;
+}
+
+.status > img {
+    height: 80px;
+    width: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.status > span {
+    font-family: "Righteous", Sans-Serif;
+    text-transform: capitalize;
+    font-size: 0.6rem;
+    font-weight: 500;
+    color: #666;
+}
+
+.status {
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex: 0 0 100px;
+    position: relative;
+    left: -0px;
+}
+
+.status-slide {
+    display: flex;
+    overflow: hidden;
+    max-width: 95vw;
+    margin: 1.5rem auto 3rem auto;
+    padding: 0.6em 0;
+    border-radius: 15px;
+    border-top: 1.5px solid var(--color2);
+    border-bottom: 1.5px solid var(--color2);
 }

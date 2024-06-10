@@ -21,9 +21,20 @@ body {
 }
 
 h1 {
-    font-size: 3rem;
     padding: 1.5rem 0.5rem;
+    font-size: 3rem;
+    position: fixed;
+    top: 0;
+    z-index: 5;
+    background-color: var(--color1);
+    width: 100vw;
+    animation: shrink 1s ease-in-out both;
+    animation-timeline: scroll();
+    animation-range-start: 0px;
+    animation-range-end: 120px;
+}
 
+.headSpan {
     letter-spacing: 5px;
     font-family: "Courier New", Monospace;
     font-family: "Ultra", Monospace;
@@ -36,7 +47,22 @@ h1 {
     background-repeat: repeat;
     -webkit-background-clip: text;
     color: transparent;
+}
+
+.head {
     animation: gradient-slide 50s ease-in-out infinite alternate;
+}
+
+@keyframes shrink {
+    to {
+        font-size: 1.5rem;
+        padding: 0.2rem;
+    }
+}
+@keyframes shrinktoo {
+    to {
+        height: 20px;
+    }
 }
 
 @keyframes gradient-slide {
@@ -57,6 +83,10 @@ h1 {
 
 .logo {
     height: 30px;
+    animation: shrinktoo 1s ease-in-out both;
+    animation-timeline: scroll();
+    animation-range-start: 0px;
+    animation-range-end: 120px;
 }
 
 .status > img {
@@ -99,6 +129,7 @@ h1 {
 }
 .status-holder {
     position: relative;
+    margin-top: 150px;
 }
 
 button {

@@ -86,10 +86,11 @@ h1 {
 }
 
 .status-slide {
+    margin-inline: auto;
+    margin-top: 1.5rem;
     display: flex;
     overflow: hidden;
     max-width: 95vw;
-    margin: 1.5rem auto 3rem auto;
     padding: 0.6em 0;
     border-radius: 15px;
     border-top: 1.5px solid var(--color2);
@@ -103,8 +104,8 @@ button {
     border: 0px;
 }
 .button {
-    height: 35px;
-    width: 35px;
+    height: 30px;
+    width: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -134,4 +135,23 @@ button {
 .button:focus #previous,
 .button:focus #next {
     fill: var(--color5);
+}
+
+.progress {
+    margin: 0.7rem auto 3rem auto;
+    width: 95vw;
+    height: 5px;
+    border: 1px solid var(--color2light);
+    margin-inline: auto;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.progress-level {
+    width: 0%;
+    height: 5px;
+    border-radius: 10px;
+    background-color: var(--color2light);
 }

@@ -95,3 +95,43 @@ h1 {
     border-top: 1.5px solid var(--color2);
     border-bottom: 1.5px solid var(--color2);
 }
+.status-holder {
+    position: relative;
+}
+
+button {
+    border: 0px;
+}
+.button {
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background: #0000003c;
+    backdrop-filter: blur(2px);
+    border-radius: 50%;
+}
+.previous {
+    left: 10px;
+    top: 0;
+    top: 35%;
+}
+
+.next {
+    right: 0;
+    top: 35%;
+}
+
+#previous,
+#next {
+    fill: var(--color2light);
+}
+
+.button:hover #previous,
+.button:hover #next,
+.button:focus #previous,
+.button:focus #next {
+    fill: var(--color5);
+}

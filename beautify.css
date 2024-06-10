@@ -2,7 +2,7 @@
     --color1: #f0f4c3;
     --color2: #9389ff;
     --color2light: #c7c3f4;
-    --color3: #4e9aff;
+    --color3: #c8da00af;
     --color4: #009dab;
     --color4light: #c3f0f4;
     --color5: #ff5df2;
@@ -129,6 +129,7 @@ button {
 #previous,
 #next {
     fill: var(--color2light);
+    transition: all 200ms ease-in-out;
 }
 
 .button:hover #previous,
@@ -172,7 +173,7 @@ button {
 .message-holder {
     display: flex;
     flex-direction: column;
-    gap: 1.3rem;
+    gap: 1.5rem;
 }
 
 .message-block {
@@ -180,6 +181,16 @@ button {
     justify-content: flex-start;
     align-items: center;
     gap: 1rem;
+    padding: 15px 10px;
+    border-left: 1px solid var(--color3);
+    border-bottom: 1px solid var(--color3);
+    border-radius: 10px;
+    box-shadow: -2px 2px 5px #999;
+    transition: background-color 300ms ease-in-out;
+}
+
+.message-block:hover {
+    background-color: var(--color5light);
 }
 
 .message-block > img {
@@ -191,7 +202,8 @@ button {
 
 .display-message-details h4 {
     font-family: "Bree Serif", Serif;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     margin-bottom: 0.4rem;
     text-transform: capitalize;
+    font-weight: 600;
 }

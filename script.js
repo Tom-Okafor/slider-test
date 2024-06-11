@@ -28,7 +28,7 @@
         );
 
         const NUMBER_OF_SLIDE_MOVEMENTS_NEEDED_FOR_COMPLETE_SLIDE_SHOW =
-            Math.ceil(NUMBER_OF_ALL_STATUS_SLIDES / NUM_OF_VISIBLE_SLIDES);
+            Math.floor(NUMBER_OF_ALL_STATUS_SLIDES / NUM_OF_VISIBLE_SLIDES);
 
         let currentNumOfSlideMovements = 0;
 
@@ -48,7 +48,17 @@
         changeProgressLevel();
 
         function assignNewProgressLevel() {
-            numberOfSlidesShown += NUM_OF_VISIBLE_SLIDES;
+            if (
+                NUMBER_OF_ALL_STATUS_SLIDES - numberOfSlidesShown >=
+                NUM_OF_VISIBLE_SLIDES
+            ) {
+                numberOfSlidesShown += NUM_OF_VISIBLE_SLIDES;
+            } else {
+                numberOfSlidesShown +=
+                    NUMBER_OF_ALL_STATUS_SLIDES - numberOfSlidesShown;
+            }
+            console.log(NUMBER_OF_ALL_STATUS_SLIDES - numberOfSlidesShown);
+            console.log(numberOfSlidesShown);
             changeProgressLevel();
         }
 
@@ -70,10 +80,31 @@
             }
         }
         isSlideShowAtItsExtremes();
-
-        function handleStatusNextButtonClick() {}
+        let leftPosition = 0;
+        function handleStatusNextButtonClick() {
+            NEXT_BUTTON.addEventListener("click", function () {
+                if (
+                    currentNumOfSlideMovements ==
+                    NUMBER_OF_SLIDE_MOVEMENTS_NEEDED_FOR_COMPLETE_SLIDE_SHOW - 1
+                ) {
+                    leftPosition =
+                        leftPosition +
+                        (NUMBER_OF_ALL_STATUS_SLIDES - numberOfSlidesShown);
+                } else{
+                leftPosition = leftPosition + NUM_OF_VISIBLE_SLIDES};
+                for (let eachStatusSlide of ALL_STATUS_SLIDES) {
+                    eachStatusSlide.style.left = `-${
+                        leftPosition * SINGLE_STATUS_SLIDE_WIDTH
+                    }px`;
+                }
+                currentNumOfSlideMovements++;
+                isSlideShowAtItsExtremes();
+                assignNewProgressLevel();
+            });
+        }
 
         function handleStatusPreviousButtonClick() {}
+        handleStatusNextButtonClick();
     }
 
     handleStatusSliderButtonsClick();

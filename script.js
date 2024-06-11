@@ -18,6 +18,10 @@
 
         const PROGRESS_LEVEL = document.querySelector(".progress-level");
 
+        const NEXT_BUTTON = document.querySelector(".next");
+
+        const PREVIOUS_BUTTON = document.querySelector(".previous");
+
         // BASIC CALCULATIONS AND VARIABLES NECCESSARY FOR SMOOTH STATUS SLIDE
         const NUM_OF_VISIBLE_SLIDES = Math.floor(
             STATUS_SLIDES_PARENT_WIDTH / SINGLE_STATUS_SLIDE_WIDTH
@@ -28,12 +32,44 @@
 
         let currentNumOfSlideMovements = 0;
 
-        let progressLevel = Math.round(
-            (NUM_OF_VISIBLE_SLIDES / NUMBER_OF_ALL_STATUS_SLIDES) * 100
-        );
+        let numberOfSlidesShown = NUM_OF_VISIBLE_SLIDES;
 
-        // assign a progress level width for the status slides progress tracker based on above values
-        PROGRESS_LEVEL.style.width = `${progressLevel}%`;
+        // handle progress level growth as status slide movement progresses
+        function calculateProgressLevel() {
+            let progressLevel = Math.round(
+                (numberOfSlidesShown / NUMBER_OF_ALL_STATUS_SLIDES) * 100
+            );
+            return progressLevel;
+        }
+
+        function changeProgressLevel() {
+            PROGRESS_LEVEL.style.width = `${calculateProgressLevel()}%`;
+        }
+        changeProgressLevel();
+
+        function assignNewProgressLevel() {
+            numberOfSlidesShown += NUM_OF_VISIBLE_SLIDES;
+            changeProgressLevel();
+        }
+
+        // check to see if the slide show is at its end or beginning and remove buttons where necessary
+
+        function isSlideShowAtItsExtremes() {
+            if (currentNumOfSlideMovements == 0) {
+                PREVIOUS_BUTTON.style.display = "none";
+            } else {
+                PREVIOUS_BUTTON.style.display = "block";
+            }
+            if (
+                currentNumOfSlideMovements ==
+                NUMBER_OF_SLIDE_MOVEMENTS_NEEDED_FOR_COMPLETE_SLIDE_SHOW
+            ) {
+                NEXT_BUTTON.style.display = "none";
+            } else {
+                NEXT_BUTTON.style.display = "block";
+            }
+        }
+        isSlideShowAtItsExtremes();
 
         function handleStatusNextButtonClick() {}
 

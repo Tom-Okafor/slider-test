@@ -166,4 +166,15 @@
     handleStatusSliderButtonsClick();
     
     
+    function generateRandomNumber(min, max){
+      const NUMBER_OF_VALUES_OBTAINABLE = ( max - min ) + 1
+      const RANDOM_NUMBER = Math.floor(NUMBER_OF_VALUES_OBTAINABLE * Math.random())
+      const RANDOM_NUMBER_WITHIN_RANGE = RANDOM_NUMBER + min
+      return RANDOM_NUMBER_WITHIN_RANGE
+    }
+    
+    for(let t = 0; t < 20; t++){
+      console.log(generateRandomNumber(2,7));
+    }
+    
 })();

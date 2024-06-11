@@ -60,18 +60,20 @@
             changeProgressLevel();
         }
 
-        function calculateProgressStartLevel() {
-            let progressStartLevel =
-                NUMBER_OF_ALL_STATUS_SLIDES % NUM_OF_VISIBLE_SLIDES;
-            return progressStartLevel;
-        }
+        // function calculateProgressStartLevel() {
+        //     let progressStartLevel =
+        //         NUMBER_OF_ALL_STATUS_SLIDES % NUM_OF_VISIBLE_SLIDES;
+        //     return progressStartLevel;
+        // }
 
         function decreaseProgressLevel() {
             if (NUMBER_OF_ALL_STATUS_SLIDES - numberOfSlidesShown == 0) {
-                calculateProgressStartLevel();
+                let progressStartLevel =
+                    NUMBER_OF_ALL_STATUS_SLIDES % NUM_OF_VISIBLE_SLIDES;
                 if (progressStartLevel > 0) {
+                    console.log("progressStartLevel is: " + progressStartLevel);
                     numberOfSlidesShown -= progressStartLevel;
-                } else if (progressStartLevel == 0) {
+                } else {
                     decrementProgress();
                 }
             } else {
@@ -139,16 +141,19 @@
                     currentNumOfSlideMovements ==
                     NUMBER_OF_SLIDE_MOVEMENTS_NEEDED_FOR_COMPLETE_SLIDE_SHOW
                 ) {
-                    calculateProgressStartLevel();
+                    let progressStartLevel =
+                        NUMBER_OF_ALL_STATUS_SLIDES % NUM_OF_VISIBLE_SLIDES;
                     if (progressStartLevel == 0) {
                         leftPosition -= NUM_OF_VISIBLE_SLIDES;
                     } else {
                         leftPosition -= progressStartLevel;
                     }
+                } else {
+                    leftPosition -= NUM_OF_VISIBLE_SLIDES;
                 }
                 handleSliderMovement();
                 currentNumOfSlideMovements--;
-            isSlideShowAtItsExtremes();
+                isSlideShowAtItsExtremes();
 
                 decreaseProgressLevel();
             });
@@ -159,4 +164,6 @@
     }
 
     handleStatusSliderButtonsClick();
+    
+    
 })();

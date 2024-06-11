@@ -110,6 +110,7 @@ h1 {
     flex: 0 0 100px;
     position: relative;
     left: -0px;
+    transition: all 800ms ease-in-out;
 }
 
 .status-slide {
@@ -183,7 +184,8 @@ button {
     width: 0%;
     height: 5px;
     border-radius: 10px;
-    background-color: var(--color2light);
+    background-color: var(--color2);
+    transition: width 1s ease-in-out;
 }
 
 .divide {
@@ -247,16 +249,17 @@ button {
     align-items: center;
 }
 
-.display-message-details.unread h4, .display-message-details.unread p {
-  font-weight: 800;
+.display-message-details.unread h4,
+.display-message-details.unread p {
+    font-weight: 800;
 }
-.display-message-details.read h4{
-  font-weight: 100;
+.display-message-details.read h4 {
+    font-weight: 100;
 }
 
-.display-message-details.read p{
-  font-weight: 400;
-  color: #999;
+.display-message-details.read p {
+    font-weight: 400;
+    color: #999;
 }
 
 .svg {
@@ -271,12 +274,11 @@ button {
     color: #999;
 }
 
-
-.online.active{
-  height: 8px;
-  width: 8px;
-  border-radius: 50%;
-  background: #007fff;
-  margin-left: auto;
-  margin-right: .6rem;
+.online.active {
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background: #007fff;
+    margin-left: auto;
+    margin-right: 0.6rem;
 }

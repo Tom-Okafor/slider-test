@@ -23,6 +23,18 @@
             STATUS_SLIDES_PARENT_WIDTH / SINGLE_STATUS_SLIDE_WIDTH
         );
 
+        const NUMBER_OF_SLIDE_MOVEMENTS_NEEDED_FOR_COMPLETE_SLIDE_SHOW =
+            Math.ceil(NUMBER_OF_ALL_STATUS_SLIDES / NUM_OF_VISIBLE_SLIDES);
+
+        let currentNumOfSlideMovements = 0;
+
+        let progressLevel = Math.round(
+            (NUM_OF_VISIBLE_SLIDES / NUMBER_OF_ALL_STATUS_SLIDES) * 100
+        );
+
+        // assign a progress level width for the status slides progress tracker based on above values
+        PROGRESS_LEVEL.style.width = `${progressLevel}%`;
+
         function handleStatusNextButtonClick() {}
 
         function handleStatusPreviousButtonClick() {}

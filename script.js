@@ -47,7 +47,7 @@
         }
         changeProgressLevel();
 
-        function assignNewProgressLevel() {
+        function incrementProgressLevel() {
             if (
                 NUMBER_OF_ALL_STATUS_SLIDES - numberOfSlidesShown >=
                 NUM_OF_VISIBLE_SLIDES
@@ -57,8 +57,30 @@
                 numberOfSlidesShown +=
                     NUMBER_OF_ALL_STATUS_SLIDES - numberOfSlidesShown;
             }
-            console.log(NUMBER_OF_ALL_STATUS_SLIDES - numberOfSlidesShown);
-            console.log(numberOfSlidesShown);
+            changeProgressLevel();
+        }
+
+        function calculateProgressStartLevel() {
+            let progressStartLevel =
+                NUMBER_OF_ALL_STATUS_SLIDES % NUM_OF_VISIBLE_SLIDES;
+            return progressStartLevel;
+        }
+
+        function decreaseProgressLevel() {
+            if (NUMBER_OF_ALL_STATUS_SLIDES - numberOfSlidesShown == 0) {
+                calculateProgressStartLevel();
+                if (progressStartLevel > 0) {
+                    numberOfSlidesShown -= progressStartLevel;
+                } else if (progressStartLevel == 0) {
+                    decrementProgress();
+                }
+            } else {
+                decrementProgress();
+            }
+            function decrementProgress() {
+                numberOfSlidesShown -= NUM_OF_VISIBLE_SLIDES;
+                return numberOfSlidesShown;
+            }
             changeProgressLevel();
         }
 
@@ -90,21 +112,50 @@
                     leftPosition =
                         leftPosition +
                         (NUMBER_OF_ALL_STATUS_SLIDES - numberOfSlidesShown);
-                } else{
-                leftPosition = leftPosition + NUM_OF_VISIBLE_SLIDES};
-                for (let eachStatusSlide of ALL_STATUS_SLIDES) {
-                    eachStatusSlide.style.left = `-${
-                        leftPosition * SINGLE_STATUS_SLIDE_WIDTH
-                    }px`;
+                } else {
+                    leftPosition += NUM_OF_VISIBLE_SLIDES;
                 }
+                handleSliderMovement();
+                console.log(currentNumOfSlideMovements);
                 currentNumOfSlideMovements++;
+                console.log(currentNumOfSlideMovements);
                 isSlideShowAtItsExtremes();
-                assignNewProgressLevel();
+
+                incrementProgressLevel();
             });
         }
 
-        function handleStatusPreviousButtonClick() {}
+        function handleSliderMovement() {
+            for (let eachStatusSlide of ALL_STATUS_SLIDES) {
+                eachStatusSlide.style.left = `-${
+                    leftPosition * SINGLE_STATUS_SLIDE_WIDTH
+                }px`;
+            }
+        }
+
+        function handleStatusPreviousButtonClick() {
+            PREVIOUS_BUTTON.addEventListener("click", function () {
+                if (
+                    currentNumOfSlideMovements ==
+                    NUMBER_OF_SLIDE_MOVEMENTS_NEEDED_FOR_COMPLETE_SLIDE_SHOW
+                ) {
+                    calculateProgressStartLevel();
+                    if (progressStartLevel == 0) {
+                        leftPosition -= NUM_OF_VISIBLE_SLIDES;
+                    } else {
+                        leftPosition -= progressStartLevel;
+                    }
+                }
+                handleSliderMovement();
+                currentNumOfSlideMovements--;
+            isSlideShowAtItsExtremes();
+
+                decreaseProgressLevel();
+            });
+        }
+
         handleStatusNextButtonClick();
+        handleStatusPreviousButtonClick();
     }
 
     handleStatusSliderButtonsClick();

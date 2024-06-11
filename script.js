@@ -164,17 +164,28 @@
     }
 
     handleStatusSliderButtonsClick();
-    
-    
-    function generateRandomNumber(min, max){
-      const NUMBER_OF_VALUES_OBTAINABLE = ( max - min ) + 1
-      const RANDOM_NUMBER = Math.floor(NUMBER_OF_VALUES_OBTAINABLE * Math.random())
-      const RANDOM_NUMBER_WITHIN_RANGE = RANDOM_NUMBER + min
-      return RANDOM_NUMBER_WITHIN_RANGE
+
+    function generateRandomNumber(min, max) {
+        const NUMBER_OF_VALUES_OBTAINABLE = max - min + 1;
+        const RANDOM_NUMBER = Math.floor(
+            NUMBER_OF_VALUES_OBTAINABLE * Math.random()
+        );
+        const RANDOM_NUMBER_WITHIN_RANGE = RANDOM_NUMBER + min;
+        return RANDOM_NUMBER_WITHIN_RANGE;
+    }
+
+    function shuffleUsersWithOnlineStatus() {
+        const GET_INACTIVE_ONLINE_CIRCLE = document.querySelectorAll(".active");
+        console.log(GET_INACTIVE_ONLINE_CIRCLE[2]);
+        for (let t = 0; t < generateRandomNumber(2, 5); t++) {
+            GET_INACTIVE_ONLINE_CIRCLE[
+                generateRandomNumber(0, 6)
+            ].classList.toggle("online");
+        }
     }
     
-    for(let t = 0; t < 20; t++){
-      console.log(generateRandomNumber(2,7));
-    }
     
+    
+    
+    shuffleUsersWithOnlineStatus();
 })();

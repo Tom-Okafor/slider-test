@@ -90,17 +90,29 @@
 
         function isSlideShowAtItsExtremes() {
             if (currentNumOfSlideMovements == 0) {
-                PREVIOUS_BUTTON.style.display = "none";
+                PREVIOUS_BUTTON.style.opacity = "0";
+                setTimeout(() => {
+                    PREVIOUS_BUTTON.style.display = "none";
+                }, 500);
             } else {
-                PREVIOUS_BUTTON.style.display = "block";
+                PREVIOUS_BUTTON.style.opacity = "1";
+                setTimeout(() => {
+                    PREVIOUS_BUTTON.style.display = "flex";
+                }, 500);
             }
             if (
                 currentNumOfSlideMovements ==
                 NUMBER_OF_SLIDE_MOVEMENTS_NEEDED_FOR_COMPLETE_SLIDE_SHOW
             ) {
-                NEXT_BUTTON.style.display = "none";
+                NEXT_BUTTON.style.opacity = "0";
+                setTimeout(() => {
+                    NEXT_BUTTON.style.display = "none";
+                }, 500);
             } else {
-                NEXT_BUTTON.style.display = "block";
+                NEXT_BUTTON.style.opacity = "1";
+                setTimeout(() => {
+                    NEXT_BUTTON.style.display = "flex";
+                }, 500);
             }
         }
         isSlideShowAtItsExtremes();
@@ -179,13 +191,36 @@
         console.log(GET_INACTIVE_ONLINE_CIRCLE[2]);
         for (let t = 0; t < generateRandomNumber(2, 5); t++) {
             GET_INACTIVE_ONLINE_CIRCLE[
-                generateRandomNumber(0, 6)
+                generateRandomNumber(0, GET_INACTIVE_ONLINE_CIRCLE.length - 1)
             ].classList.toggle("online");
         }
     }
-    
-    
-    
-    
+
     shuffleUsersWithOnlineStatus();
+
+    function shuffleUnreadAndReadMessges() {
+        const GET_MESSAGE_HOLDER = document.querySelectorAll(
+            ".display-message-details"
+        );
+
+        function shuffleUnreadMessages() {
+            for (let t = 0; t < generateRandomNumber(3, 4); t++) {
+                GET_MESSAGE_HOLDER[
+                    generateRandomNumber(0, GET_MESSAGE_HOLDER.length - 1)
+                ].classList.add("unread");
+            }
+        }
+        function shuffleReadMessages() {
+            for (let eachMessageHolder of GET_MESSAGE_HOLDER) {
+                if (eachMessageHolder.classList.contains("unread")) {
+                    continue;
+                } else {
+                    eachMessageHolder.classList.add("read");
+                }
+            }
+        }
+        shuffleUnreadMessages();
+        shuffleReadMessages();
+    }
+    shuffleUnreadAndReadMessges();
 })();

@@ -47,7 +47,7 @@ h1 {
     background-repeat: repeat;
     -webkit-background-clip: text;
     color: transparent;
-    animation: gradient-slide 80s linear infinite alternate;
+    animation: gradient-slide 50s linear infinite alternate;
 }
 
 @keyframes shrink {
@@ -136,13 +136,14 @@ button {
 .button {
     height: 30px;
     width: 30px;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     position: absolute;
     background: #0000003c;
     backdrop-filter: blur(2px);
     border-radius: 50%;
+    transition: all 500ms ease-in-out;
 }
 .previous {
     left: 10px;
@@ -199,12 +200,13 @@ button {
     width: 95vw;
     display: flex;
     margin-inline: auto;
+    margin-top: 2rem;
 }
 
 .message-holder {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.8rem;
 }
 
 .message-block {
@@ -225,9 +227,8 @@ button {
     background-color: var(--color5light);
 }
 .message-block:hover > img {
-border-radius: 20%;
+    border-radius: 20%;
 }
-
 
 .message-block > img {
     height: 75px;
@@ -261,6 +262,7 @@ border-radius: 20%;
 }
 .display-message-details.read h4 {
     font-weight: 100;
+    color: #444;
 }
 
 .display-message-details.read p {
@@ -287,4 +289,28 @@ border-radius: 20%;
     background: #007fff;
     margin-left: auto;
     margin-right: 0.6rem;
+}
+
+footer > h4 {
+    margin-top: 2rem;
+    margin-left: 1rem;
+    font-size: 1rem;
+    font-weight: 300;
+    font-family: "Ultra", Serif;
+    background: linear-gradient(
+        55deg,
+        var(--color2) 20%,
+        var(--color5) 21% 54%,
+        var(--color2) 55% 78%,
+        var(--color5) 79%
+    );
+    background-size: 10%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+footer span {
+    font-size: 1.2rem;
+    font-weight: 200;
 }

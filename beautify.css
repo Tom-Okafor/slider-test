@@ -31,7 +31,7 @@ h1 {
     animation: shrink 1s ease-in-out both;
     animation-timeline: scroll();
     animation-range-start: 0px;
-    animation-range-end: 120px;
+    animation-range-end: 150px;
 }
 
 .headSpan {
@@ -83,7 +83,7 @@ h1 {
     animation: shrinktoo 1s ease-in-out both;
     animation-timeline: scroll();
     animation-range-start: 0px;
-    animation-range-end: 120px;
+    animation-range-end: 150px;
 }
 
 .status > img {
@@ -190,6 +190,7 @@ button {
     height: 4px;
     width: 4px;
     background: #aaa;
+    display: flex;
 }
 
 .messages {
@@ -206,6 +207,7 @@ button {
 
 .message-block {
     display: flex;
+    width: 95vw;
     justify-content: flex-start;
     align-items: center;
     gap: 1rem;
@@ -213,7 +215,7 @@ button {
     border-left: 1px solid var(--color3);
     border-bottom: 1px solid var(--color3);
     border-radius: 10px;
-    box-shadow: -2px 2px 5px #999;
+    box-shadow: -2px 2px 3px #999;
     transition: background-color 300ms ease-in-out;
 }
 
@@ -230,8 +232,29 @@ button {
 
 .display-message-details h4 {
     font-family: "Bree Serif", Serif;
-    font-size: 0.95rem;
-    margin-bottom: 0.4rem;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
     text-transform: capitalize;
-    font-weight: 600;
+    font-weight: 400;
+}
+
+.display-message-details p {
+    display: flex;
+    gap: 7px;
+    font-size: 0.9rem;
+    font-weight: 370;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.svg {
+    height: 2px;
+    width: 2px;
+    background-color: #999;
+}
+
+.duration {
+    font-size: 0.7rem;
+    font-weight: normal;
+    color: #999;
 }

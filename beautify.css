@@ -47,7 +47,7 @@ h1 {
     background-repeat: repeat;
     -webkit-background-clip: text;
     color: transparent;
-    animation: gradient-slide 50s ease-in-out infinite alternate;
+    animation: gradient-slide 80s linear infinite alternate;
 }
 
 @keyframes shrink {
@@ -110,7 +110,7 @@ h1 {
     flex: 0 0 100px;
     position: relative;
     left: -0px;
-    transition: all 800ms ease-in-out;
+    transition: all 1000ms ease-in-out;
 }
 
 .status-slide {
@@ -224,12 +224,18 @@ button {
 .message-block:hover {
     background-color: var(--color5light);
 }
+.message-block:hover > img {
+border-radius: 20%;
+}
+
 
 .message-block > img {
     height: 75px;
     width: 75px;
     border-radius: 50%;
     flex-shrink: 0;
+    object-fit: cover;
+    transition: all 800ms ease-in-out;
 }
 
 .display-message-details h4 {
